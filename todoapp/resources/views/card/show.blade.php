@@ -13,8 +13,8 @@
     <h2>{{ $listing->title }}</h2>
     
     <div class="card_action">
-      <button type="button" class="btn btn-primary"> 編集する </button>
-      <button type="button" class="btn btn-link" onclick="return confirm('{{ $card->title }}を削除して大丈夫ですか？')" href="{{ url('/cardsdelete', $card->listing_id) }}"> 削除する </button>
+      <a href="{{ url('/cardedit', $card->id) }}">編集する</a>
+      <a onclick="return confirm('{{ $card->title }}を削除して大丈夫ですか？')" href="{{ url('/carddelete', $card->id) }}">削除する</a>
     </div>
   </div>
 </div>

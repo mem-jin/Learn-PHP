@@ -76,7 +76,7 @@ class ListingsController extends Controller
         return redirect('/');
     }
     
-     public function destroy($listing_id)
+    public function destroy($listing_id)
     {
         $listings=Listing::where('id',$listing_id)->delete();
         return redirect('/');

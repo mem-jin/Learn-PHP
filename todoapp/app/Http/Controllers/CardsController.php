@@ -44,7 +44,7 @@ class CardsController extends Controller
         // テンプレート「listing/new.blade.php」を表示します。
     }
     
-     public function detail($listing_id, $card_id)
+    public function detail($listing_id, $card_id)
     {
         $card =Card::where('id', $card_id)
             ->first();
@@ -52,5 +52,43 @@ class CardsController extends Controller
             ->first();
         return view('card/show', ['card' => $card, 'listing' => $listing]);
     }
+    
+    
+    
+    
+    public function edit($card_id)
+    {
+        $card =Card::where('id', $card_id)
+            ->first();
+            
+        $listings = Listing::where('user_id', Auth::user()->id)
+            ->orderBy('created_at', 'asc')
+            ->get();
+            
+            return view('card/edit', ['card' => $card, 'listings' => $listings]);
+    }
+    
+    public function update(Request $request)
+    {
+        $validator = Validator::make($request->all(), ['list_name' => 'required|max:255', ]);
 
+        if ($validator->fails())
+        {
+            return redirect()->back()->withErrors($validator->errors())->withInput();
+        }
+
+        $listings=Listing::where('id', $request->id);
+        $listings->update(['title' => $request->list_name]);
+        
+        return redirect('/');
+    }
+    
+    
+    
+    public function destroy($card_id)
+    {
+        $card=Card::where('id',$card_id)->delete();
+        return redirect('/');
+    }
+    
 }
