@@ -21,9 +21,9 @@
     <link href="{{ secure_asset('css/top.css') }}" rel="stylesheet">
     <link href="{{ secure_asset('css/list_new.css') }}" rel="stylesheet">
     
-    <link href="{{ secure_asset('css/cards_edit.css') }}" rel="stylesheet">
-    <link href="{{ secure_asset('css/cards_new.css') }}" rel="stylesheet">
-    <link href="{{ secure_asset('css/cards_show.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/card_edit.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/card_new.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/card_show.css') }}" rel="stylesheet">
     
      <!-- awesome fonts -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">

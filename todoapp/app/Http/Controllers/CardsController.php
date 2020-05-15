@@ -53,9 +53,6 @@ class CardsController extends Controller
         return view('card/show', ['card' => $card, 'listing' => $listing]);
     }
     
-    
-    
-    
     public function edit($card_id)
     {
         $card =Card::where('id', $card_id)
@@ -85,8 +82,6 @@ class CardsController extends Controller
         
         return redirect('/');
     }
-    
-    
     
     public function destroy($card_id)
     {
