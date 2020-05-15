@@ -33,6 +33,8 @@ Route::get('/listing/{listing_id}/card/{card_id}','CardsController@detail');
 
 Route::get('/cardedit/{card_id}','CardsController@edit');
 
+Route::post('/card/edit','CardsController@update');
+
 Route::get('/carddelete/{card_id}','CardsController@destroy');
 
 Auth::routes();

@@ -70,15 +70,18 @@ class CardsController extends Controller
     
     public function update(Request $request)
     {
-        $validator = Validator::make($request->all(), ['list_name' => 'required|max:255', ]);
+        $validator = Validator::make($request->all(), ['card_name' => 'required|max:255',
+                                                       'card_memo' => 'max:1023']);
 
         if ($validator->fails())
         {
             return redirect()->back()->withErrors($validator->errors())->withInput();
         }
 
-        $listings=Listing::where('id', $request->id);
-        $listings->update(['title' => $request->list_name]);
+        $cards=Card::where('id', $request->card_id);
+        $cards->update(['title' => $request->card_name]);
+        $cards->update(['memo' => $request->card_memo]);
+        $cards->update(['listing_id' => $request->listing_id]);
         
         return redirect('/');
     }

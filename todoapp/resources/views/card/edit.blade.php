@@ -23,9 +23,17 @@
       <div class="form-group"> 
         <label for="listing" class="col-sm-3 control-label">リスト名</label> 
         <div class="col-sm-6"> 
-          <select name="card_memo" value="{{ old('card_memo', $card->memo) }}" class="form-control"> 
+          <select name="listing_id" class="form-control">
+            @foreach ($listings as $listing)
+              @if ($listing->id !== $card->listing_id)
+                <option value="{{$listing->id}}">{{$listing->title}}</option>
+              @else
+                <option value="{{$listing->id}}" selected>{{$listing->title}}</option>
+              @endif
+            @endforeach
+          </select>  
         </div>
-        <input type="hidden" name="id" value="{{ old('id', $card->id) }}"> 
+        <input type="hidden" name="card_id" value="{{ old('id', $card->id) }}"> 
       </div>
       
       <div class="form-group"> 
